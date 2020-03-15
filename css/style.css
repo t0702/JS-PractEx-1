@@ -8,7 +8,6 @@ body{
 }
 h1{
     color: white;
-    font-weight: normal;
     border-bottom: 2px solid deepskyblue;
 }
 li{
@@ -20,6 +19,8 @@ li a{
     text-decoration: none;
     color: white;
 }
-li a:hover{
+li a:hover,
+li a:active,
+li a:focus{
     color:deepskyblue;
 }
