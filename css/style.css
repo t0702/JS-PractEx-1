@@ -1,10 +1,25 @@
+body{
+    background-color: #161616;
+}
 #wrap{
-    width: 1000px;
+    width: 900px;
     margin: 0 auto;
     position: relative;
 }
 h1{
-    text-align: center;
+    color: white;
+    font-weight: normal;
+    border-bottom: 2px solid deepskyblue;
 }
-
+li{
+    font-size: 20px;
+    color:white;
+    margin: 10px 0;
+}
+li a{
+    text-decoration: none;
+    color: white;
+}
+li a:hover{
+    color:deepskyblue;
 }
