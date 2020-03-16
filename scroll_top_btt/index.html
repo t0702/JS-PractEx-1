@@ -48,13 +48,45 @@
             // 문서 높이 계산하기
             // docHeight = docElem.offsetHeight;
             docHeight = Math.max(docElem.scrollHeight, docElem.offsetHeight); //scrollHeight 또는 offsetHeight;
-            scrollPos = docElem.scrollTop;
 
-            console.log(docHeight);
+            //undefined 대신 0 을 써도 됨/ 값이 있으면
+            if(docHeight != 'undefined'){
+                offset = docHeight / 4;
+            }
             
             // 스크롤 이벤트 추가
-            
+            // 윈도우에 스크롤이 들어오면 할 일 = function()
+            window.addEventListener('scroll', function(){
+                scrollPos = docElem.scrollTop;
+                console.log(scrollPos);
 
+                //btt.className = (scrollPos > offset) ? 'visible' : '';
+                if(scrollPos > offset){
+                    btt.className = 'visible';
+                }else{
+                    btt.className = ' ';
+                }
+            });
+            
+            btt.addEventListener('click',function(e){
+                e.preventDefault(); //링크의 본연의 기능을 막는다(a)
+                // docElem.scrollTop = 0;
+                scrollToTop();
+            });
+            function scrollToTop(){
+                //일정시간마다 할 일 > setInterval(할일, 시간);
+                //0.0015s = 15ms
+                //할 일 = function(){실제로 할 일}
+                //실제로 할 일 윈도우 스크롤 양이 0이 아닐 때 = window.scrollBy(0,-55);
+                //스크롤 양이 0이면 setInterval을 멈춰라. clearInterval(이름); 이름은 var scrollInterval
+                var scrollInterval = setInterval(function(){
+                    if(scrollPos != 0){
+                        window.scrollBy(0,-55);
+                    }else{
+                        clearInterval(scrollInterval);
+                    }
+                },15);
+            }
             // 클릭 이벤트 추가
 
         </script>
