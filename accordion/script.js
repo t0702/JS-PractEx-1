@@ -21,5 +21,15 @@ function activateBody(){
     }
 
     // 2. 클래스명 active가 있는 panel-question 자식 중 panel-body 나타나도록
-    
+    //.panel-question.active .panel-body
+    var activePanel = document.querySelector('.panel-question.active .panel-body'); //querySelector : css선택자
+    activePanel.style.display="block"
 }
+activateBody();
+
+//collapse all 버튼을 클릭하면 모든 answer들을 안보이도록 한다.
+btnCollapse.addEventListener('click', function(){
+    for( var i = 0; i < answer.length; i++){
+        answer[i].style.display = 'none';
+    }
+});
